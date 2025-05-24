@@ -1,0 +1,14 @@
+<h2>Your Information:</h2>
+<pre id="info">Loading...</pre>
+
+<script>
+  fetch('https://ipwho.is/')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('info').innerText =
+        `IP: ${data.ip}\nCountry: ${data.country}\nRegion: ${data.region}\nCity: ${data.city}`;
+    })
+    .catch(() => {
+      document.getElementById('info').innerText = 'Failed to fetch info.';
+    });
+</script>
